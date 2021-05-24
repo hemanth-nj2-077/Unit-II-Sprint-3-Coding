@@ -1,0 +1,128 @@
+<html>
+    <head>
+        <title>Nike Inventory System</title>
+        <style>
+            * {
+                font-family: monospace;
+            }
+            .container {
+                width: 100%;
+                display: flex;
+                margin: 1%;
+            }
+            .form {
+                width: 24%;
+                background-color: cornflowerblue;
+                margin-right: 1%;
+                border-radius: 10px;
+            }
+            .formy {
+                padding: 10%;
+                display: flex;
+                flex-direction: column;
+            }
+            .formy input, .formy select, .formy textarea, .formy button {
+                margin: 2% 0;
+                border-radius: 10px;
+                border: none;
+                padding: 5%;
+                font-size: 100%;
+                font-weight: 1000;
+            }
+            button {
+                background-color: rgb(207, 207, 207);
+            }
+            .inventory {
+                width: 69%;
+                background-color: blueviolet;
+                border-radius: 10px;
+                padding: 3% 3%;
+                display: grid;
+                grid-template-columns: 25% 25% 25%;
+                grid-gap: 10%;
+            }
+            .e1 {
+                background-color: honeydew;
+                height: 50%;
+                padding: 2%;
+                border-radius: 10px;
+            }
+            .image {
+                width: 99.3%;
+                height: 60%;
+                margin: auto;
+                overflow: hidden;
+                border-radius: 10px;
+            }
+            .pAndEdod {
+                display: flex;
+            }
+            .para {
+                height: 10%;
+                overflow: auto;
+            }
+            .h_name {
+                text-align: center;
+            }
+            h6 {
+                margin: 5% 10% 0%;
+                font-size: 125%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="form">
+                <div class="formy">
+                    <input type="text" class="p_name" placeholder="Name">
+                    <input type="number" class="p_price" placeholder="Price">
+                    <select class="p_category">
+                        <option value="Fashion">Fashion</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Essentials">Essentials</option>
+                    </select>
+                    <input type="number" class="p_eDoD" placeholder="est. days to Delivery">
+                    <textarea class="p_description" cols="30" rows="10" placeholder="Product Description"></textarea>
+                    <input class="p_image" type="url" placeholder="product Image src">
+                    <button onclick="add()">Add to Inventory</button>
+                </div>
+            </div>
+            <div class="inventory" id="inv">
+                <!-- <div class="e1">
+                    <h2 class="h_name">Nokia X7 Pro</h2>
+                    <img class="image" src="https://lh3.googleusercontent.com/HA2SKpc6gDJXaQs4hAX1mfzVCxv2uD5XL03QA9eMR4GSqov7vFTIB3eeY7pyriLaEAzgOwy2dIfYtC_p3keB6Qc=s640-c-rw-v1-e365">
+                    <div class="pAndEdod">
+                        <h6>$1000</h6>
+                        <h6>5Days</h6>
+                    </div>
+                    <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut commodi unde non maiores facilis eius eaque enim. Impedit fugit consectetur aliquam vel, dolore incidunt cumque eveniet commodi sapiente ratione ea!</p>
+                    <button>Remove</button>
+                    <button>Update</button>
+                </div> -->
+            </div>
+        </div>
+    </body>
+    <script>
+            function update() {
+                var newprice = prompt('enter new price')
+            var pname = document.querySelectorAll('input')
+            var price = pname[1].value
+            pname[1].value = newprice
+
+            }
+        function add() {
+            var pname = document.querySelectorAll('input')
+            var ava = pname[0].value
+            var price = pname[1].value
+            var descr = document.querySelector('textarea').value
+            var dod = pname[2].value
+            var urll = pname[3].value
+
+            var div1 = document.createElement('div')
+            div1.setAttribute('class', 'e1')
+            div1.innerHTML = `<h2 class="h_name">${ava}</h2><img class="image" src="${urll}"><div class="pAndEdod"> <h6>$${price}</h6> <h6>${dod} days</h6> </div> <p class="para">${descr}</p> <button onclick= "remove()">Remove</button> <button onclick="update()">Update</button>`
+            var parentdiv = document.getElementById('inv')
+            parentdiv.appendChild(div1)
+        }
+    </script>
+</html>
